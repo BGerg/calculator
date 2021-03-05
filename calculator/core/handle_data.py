@@ -13,10 +13,10 @@ def convert_expression_to_arabic(roman_expression: str):
         roman_number = ""
 
     expr_repo = {
-        "+": _add_repo,
-        "-": _add_repo,
-        "*": _add_repo,
-        "/": _add_repo
+        "+": _add_expr,
+        "-": _add_expr,
+        "*": _add_expr,
+        "/": _add_expr
     }
 
     for elem in stripped_expression:
