@@ -9,13 +9,20 @@ def convert_expression_to_arabic(roman_expression: str):
     stripped_expression = [e.strip(" ") for e in roman_expression]
 
     for elem in stripped_expression:
-        if elem == "+" or elem == "-" or elem == "*":
+        def _add_expr(elem):
             arabic_expression += convert_roman_to_arabic(roman_number) + elem
             roman_number = ""
-        elif elem == "/":
-            arabic_expression += convert_roman_to_arabic(roman_number) + "//"
-            roman_number = ""
-        else:
+        
+        expr_repo = {
+            "+": _add_repo,
+            "-": _add_repo,
+            "*": _add_repo,
+            "/": _add_repo
+        }
+        
+        try:
+            expr_repo[elem](elem.replace"/", "//"))
+        except KeyError:
             roman_number += elem
 
     arabic_expression += convert_roman_to_arabic(roman_number)  # add last number to the expression
