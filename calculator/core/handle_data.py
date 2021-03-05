@@ -8,18 +8,18 @@ def convert_expression_to_arabic(roman_expression: str):
     arabic_expression = ""
     stripped_expression = [e.strip(" ") for e in roman_expression]
 
+    def _add_expr(elem):
+        arabic_expression += convert_roman_to_arabic(roman_number) + elem
+        roman_number = ""
+
+    expr_repo = {
+        "+": _add_repo,
+        "-": _add_repo,
+        "*": _add_repo,
+        "/": _add_repo
+    }
+
     for elem in stripped_expression:
-        def _add_expr(elem):
-            arabic_expression += convert_roman_to_arabic(roman_number) + elem
-            roman_number = ""
-        
-        expr_repo = {
-            "+": _add_repo,
-            "-": _add_repo,
-            "*": _add_repo,
-            "/": _add_repo
-        }
-        
         try:
             expr_repo[elem](elem.replace"/", "//"))
         except KeyError:
