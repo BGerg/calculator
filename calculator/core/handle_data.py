@@ -36,24 +36,10 @@ def convert_roman_to_arabic(roman_number: str) -> str:
             index += 1
 
     return str(arabic_number)
-    # if arabic_number < 3999:
-    #     return str(arabic_number)
-    # else:
-    #     raise TooLargeToConvertError("One or more input number is too large to display in roman number format!")
-
 
 def validate_roman_number(number: int):
     if number < 3999:
         raise TooLargeToConvertError("The end result is too large to display in roman number format!")
-
-
-# def get_calculated_expression(arabic_expression: str, roman_expression: str):
-#     arabic_result = eval(arabic_expression)
-#     if arabic_result < 3999:
-#         roman_result = convert_arabic_to_roman(str(arabic_result))
-#         return roman_expression + "=" + roman_result
-#     else:
-#         sys.exit("The end result is too large to display in roman number format!")
 
 
 def convert_arabic_to_roman(arabic_number: str):
